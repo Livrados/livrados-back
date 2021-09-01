@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="generator" />
+    <title>Cadastro</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="../css/cliente.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class='container'>
+	  <div class='card'>
+		<h1> Cadastrar </h1>
+		
+		<div id='msgError'></div>
+		<div id='msgSucess'></div>
+		
+		<div id='msgError'></div>
+		<div id='msgSuccess'></div>
+		
+				<div class="label-float">
+				   <input type="text" id="nome" placeholder=" " required>
+				   <label id="labelNome" for="nome">Nome Completo</label>
+				</div>
+
+				<div class="label-float">
+				   <input type="text" id="email" placeholder=" " required>
+				   <label id="labelEmail" for="email">E-mail</label>
+				</div>
+				
+				<div class="label-float">
+				   <input type="text" id="celular" maxlength="11" placeholder=" " required>
+				   <label id="labelCelular" for="celular">Celular</label>
+				</div>				
+				
+				<div class="label-float">
+				   <input type="password" id="senha" placeholder=" " required>
+				   <label id="labelSenha" for="senha">Senha</label>
+				   <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+				   
+				</div>
+
+				<div class="label-float">
+				   <input type="password" id="confirmSenha" placeholder=" " required>
+				   <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
+				   <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+				</div>
+		
+				<div class="label-float">
+				   <input type="text" id="cep" maxlength="8" placeholder=" " required>
+				   <label id="labelCep" for="cep">CEP</label>
+				</div>
+		 
+		   
+				 <div class="label-float">
+				   <input type="text" id="endereco" placeholder=" " required>
+				   <label id="labelEndereco" for="endereco">Endereço</label>
+				</div> 
+		
+				 <div class="label-float">
+				   <input type="number" id="numero" placeholder=" " required>
+				   <label id="labelNumero" for="numero">Número</label>
+				</div>
+		
+				<div class="label-float">
+				   <input type="text" id="completo" placeholder=" " required>
+				   <label id="labelComplemento" for="complemento">Complemento</label>
+				</div>    
+		
+				 <div class="label-float">
+				   <input type="text" id="bairro" placeholder=" " required>
+				   <label id="labelBairro" for="bairro">Bairro</label>
+				</div>
+		
+				 <div class="label-float">
+				   <input type="text" id="cidade" placeholder=" " required>
+				   <label id="labelCidade" for="cidade">Cidade</label>
+				</div>
+		
+				<div class="label-float">
+				   <input type="text" id="estado" placeholder=" " required>
+				   <label id="labelEstado" for="estado">Estado</label>
+				</div>
+		
+				<div class='justify-center'>
+				   <button onclick='cadastrar()'>Cadastrar</button>
+				</div>
+		
+
+		</div>  
+	  </div>
+
+		</div>
+		  <script src="../js/cad_cliente.js"></script>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+		
+		    <script type="text/javascript">
+				$("#celular").mask("(00) 00000-0000");
+				$("#cep").mask("00000-000");
+			</script>
+
+	
+   </body>
