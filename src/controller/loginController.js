@@ -1,17 +1,20 @@
-const { response } = require('express');
+const { response: res } = require('express');
 const User = require('../models/user');
 
 async function tryToLogin (req, res) {
+
+   console.log(req);
 
    if (!req.body)
       return res.status(400).send({ error: 'Cannot find body into the request' });
 
    const { email, password } = req.body;
 
-   console.log(JSON.stringify(email) + ' | ' + password);
+   console.log(email + ' | ' + password + ' EU CHEGUEI AQUI');
 
-   if (!email || !password)
+   if (!email || !password) {
       return res.status(400).send({ error: 'Missing email or password' });
+   }
 
    try {
       const user = await User.findOne({ email }).select('+password');
