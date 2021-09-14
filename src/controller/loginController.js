@@ -1,5 +1,6 @@
 //const { response: res } = require('express');
 const User = require('../models/user');
+const crypto = require('crypto');
 
 async function tryToLogin (req, res) {
 
@@ -13,15 +14,18 @@ async function tryToLogin (req, res) {
    }
 
    try {
-      const user = await User.findOne({ email }).select('+password');
+      const hashPassword = crypto.createHash('md5').update(password).digest('hex');
+
+      let user = await User.findOne({ email }).select('+password');
    
       if (!user)
          return res.status(400).send({ error: 'User not found' });
    
-      if (password !== user.password)
+      if (hashPassword !== user.password)
          return res.status(400).send({ error: 'Email or password incorrect' });
    
-      return res.status(200).send({ success: 'Login completed. Welcome ' + user.name + '!' });   
+      user.password = undefined;
+      return res.status(200).send({ success: 'Login completed. Welcome ' + user.name + '!', user });   
    } catch (err) {
       return res.status(400).send({ error: 'There are some problem when trying to talk to bd: ' + err });
    }

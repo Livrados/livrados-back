@@ -1,4 +1,5 @@
 const mongoose = require ('mongoose');
+const crypto = require ('crypto');
 
 const UserSchema = new mongoose.Schema({
    name: {
@@ -16,6 +17,7 @@ const UserSchema = new mongoose.Schema({
       type: String,
       required: true,
       select: false,
+      set: (pass) => crypto.createHash('md5').update(pass).digest('hex'),
    },
    phone: {
       type: Number,
