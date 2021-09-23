@@ -22,11 +22,11 @@ async function tryToLogin (req, res) {
       let user = await User.findOne({ email }).select('+password');
    
       if (!user) {
-         return res.status(400).send({ error: 'User not found' });
+         return res.status(400).send({ error: 'Usuário não encontrado' });
       }
 
       if (hashPassword !== user.password) {
-         return res.status(400).send({ error: 'Email or password incorrect' });
+         return res.status(400).send({ error: 'Email ou senha incorretos' });
       }
 
       //GERAÇÃO DO TOKEN
