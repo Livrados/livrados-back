@@ -13,7 +13,7 @@ async function tryToLogin (req, res) {
    const { email, password } = req.body;
 
    if (!email || !password) {
-      return res.status(400).send({ error: 'Missing email or password' });
+      return res.status(400).send({ error: 'Email ou senha não informado' });
    }
 
    try {
@@ -35,7 +35,8 @@ async function tryToLogin (req, res) {
       });
    
       user.password = undefined;
-      return res.status(200).send({ success: 'Login completed. Welcome ' + user.name + '!', user, token });   
+
+      return res.status(200).send({ success: 'Seja bem-vindo ' + user.name + '!', user, token });   
    } catch (err) {
       return res.status(400).send({ error: 'There are some problem when trying to talk to bd: ' + err });
    }

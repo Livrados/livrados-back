@@ -1,4 +1,4 @@
-const { response } = require('express');
+//const { response } = require('express');
 const User = require('../models/user');
 
 async function tryToRegisterUser (req, res) {
@@ -16,10 +16,10 @@ async function tryToRegisterUser (req, res) {
    } = req.body;
 
    if (!name || !email || !password || !phone || !cep || !addressNumber)
-      return res.status(400).send({ error: 'Requisition missing parameters' });
+      return res.status(400).send({ error: 'Campos obrigatórios não informados' });
 
    if (await User.findOne({ email }))
-      return res.status(400).send({ error: 'Email has already been registered' });
+      return res.status(400).send({ error: 'Email já registrado' });
 
    const user = new User({
       name,
@@ -35,7 +35,7 @@ async function tryToRegisterUser (req, res) {
 
       await user.save();
       user.password = undefined;
-      return res.status(201).send({ success: 'User registered succesfully', user });
+      return res.status(201).send({ success: 'Usuário cadastrado com sucesso', user });
 
    } catch (err) {
       return res.status(400).send({ error: 'Problems when trying to save into bd: ' + err});
