@@ -13,7 +13,7 @@ async function tryToRegisterUser (req, res) {
       phone,
       cep,
       addressNumber
-   } = req.body;
+   } = req.body.userData;
 
    if (!name || !email || !password || !phone || !cep || !addressNumber)
       return res.status(400).send({ error: 'Campos obrigatórios não informados' });
