@@ -20,8 +20,7 @@ async function tryToRegisterBook (req, res) {
         user_addressNumber
     } = req.body.userData;
 
-    if (!title || !isbn || !author || !edition || !publisher || !language || !category || !user_name || 
-        !user_id || !user_phone || !user_cep || !user_addressNumber)
+    if (!title || !isbn || !user_name || !user_id || !user_phone || !user_cep || !user_addressNumber)
         return res.status(400).send({ error: 'Campos obrigatórios não informados' });
 
     const book = new Book({
