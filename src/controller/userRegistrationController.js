@@ -39,7 +39,6 @@ async function tryToRegisterUser (req, res) {
 
    } catch (err) {
       return res.status(400).send({ error: 'Problems when trying to save into bd: ' + err});
-      console.log(err);
    }
 }
 
